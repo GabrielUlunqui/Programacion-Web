@@ -82,3 +82,19 @@ SITIO WEB
 
 ## 6. WIDEFRAME EN FIGMA
 <img src="img/wideframe.png" width="800">
+
+# TP - Diseño de los mackup.
+## HOME
+<img src="SIS ALARMAS/sis-home-mockup.png" width="800">
+
+## NOSOTROS
+<img src="SIS ALARMAS/sis-nosotros.png" width="800">
+
+## SERVICIOS
+<img src="SIS ALARMAS/sis-servicios.png" width="800">
+
+## CONTACTO
+<img src="SIS ALARMAS/sis-contacto.png" width="800">
+
+
+
