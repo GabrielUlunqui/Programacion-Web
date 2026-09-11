@@ -4,7 +4,7 @@
   --sis-navy: #0b1527;
   --sis-navy-2: #111827;
   --sis-slate: #1e293b;
-  --sis-muted: #64748b;
+  --sis-muted: #475569;
   --sis-border: #e8edf5;
   --sis-soft: #f5f7fb;
   --sis-radius: 1rem;
@@ -232,7 +232,7 @@ a {
   overflow: hidden;
   box-shadow: var(--sis-shadow);
   aspect-ratio: 4 / 3;
-  background: #dbe4f5 url("../imagen/camara.png") center / cover no-repeat;
+  background: #dbe4f5 url("../imagen/camara.webp") center / cover no-repeat;
 }
 
 .value-card,
@@ -346,7 +346,7 @@ a {
 
 .cta-banner-media {
   min-height: 240px;
-  background: #1e293b url("../imagen/casa.png") center / cover no-repeat;
+  background: #1e293b url("../imagen/casa.webp") center / cover no-repeat;
 }
 
 .cta-bar {
@@ -432,7 +432,7 @@ a {
   display: flex;
   align-items: flex-end;
   padding: 5.5rem 0 3.5rem;
-  background: var(--sis-navy) url("../imagen/camara.png") center / cover no-repeat;
+  background: var(--sis-navy) url("../imagen/camara.webp") center / cover no-repeat;
   color: #fff;
 }
 
@@ -679,7 +679,9 @@ a {
   padding-top: 4rem;
 }
 
-.sis-footer h6 {
+.sis-footer h6,
+.sis-footer .footer-title {
+  font-size: 1rem;
   color: #fff;
   font-weight: 800;
   letter-spacing: 0.06em;
