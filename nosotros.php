@@ -1,42 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Conocé la trayectoria, misión, visión y valores de SIS Seguridad Electrónica en Salta." />
-    <title>Nosotros | SIS Seguridad Electrónica</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="icon" href="imagen/Logo-final.jpeg" type="image/jpeg" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header>
-      <nav class="navbar navbar-expand-lg sis-navbar sticky-top" aria-label="Navegación principal">
-        <div class="container">
-          <a class="navbar-brand sis-brand" href="index.html">
-            <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav mx-lg-auto sis-nav mb-3 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link active" href="nosotros.html" aria-current="page">Nosotros</a></li>
-              <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-              <li class="nav-item"><a class="nav-link" href="soluciones.html">Soluciones</a></li>
-              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            </ul>
-            <a class="btn btn-sis" href="asesoramiento.html">Solicitar asesoramiento</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+<?php
+$titulo_pagina = "Nosotros | SIS Seguridad Electrónica";
+$pagina_actual = "nosotros";
+require_once 'includes/header.php';
+?>
 
     <main id="contenido">
       <section class="page-hero">
@@ -151,8 +117,8 @@
               </div>
             </div>
             <div class="col-lg-5 d-flex flex-wrap gap-2 justify-content-lg-end">
-              <a class="btn btn-sis" href="asesoramiento.html">Solicitar asesoramiento</a>
-              <a class="btn btn-sis-ghost" href="https://wa.me/543875334987" target="_blank" rel="noopener noreferrer">O escribinos por WhatsApp</a>
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar asesoramiento</a>
+              <a class="btn btn-sis-ghost" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer">O escribinos por WhatsApp</a>
             </div>
           </div>
         </div>
@@ -163,7 +129,7 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-md-6 col-lg-3">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.html">
+            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
               <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
             </a>
             <p>Soluciones de seguridad electrónica para hogares, comercios e industrias en Salta.</p>
@@ -177,36 +143,33 @@
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">SERVICIOS</h2>
             <ul>
-              <li><a href="camaras.html">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.html">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.html">Control de Accesos</a></li>
-              <li><a href="servicios.html">Ver todos</a></li>
+              <li><a href="camaras.php">Cámaras de Seguridad</a></li>
+              <li><a href="alarmas.php">Alarmas Inteligentes</a></li>
+              <li><a href="accesos.php">Control de Accesos</a></li>
+              <li><a href="servicios.php">Ver todos</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">EMPRESA</h2>
             <ul>
-              <li><a href="nosotros.html">Nosotros</a></li>
-              <li><a href="trabajos.html">Nuestros trabajos</a></li>
-              <li><a href="soluciones.html">Soluciones</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="nosotros.php">Nosotros</a></li>
+              <li><a href="trabajos.php">Nuestros trabajos</a></li>
+              <li><a href="soluciones.php">Soluciones</a></li>
+              <li><a href="contacto.php">Contacto</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
             <h2 class="footer-title">CONTACTO</h2>
             <ul>
-              <li><i class="bi bi-telephone text-sis me-2" aria-hidden="true"></i>+54 387 533-4987</li>
-              <li><i class="bi bi-envelope text-sis me-2" aria-hidden="true"></i>info@sis-seguridad.com.ar</li>
-              <li><i class="bi bi-geo-alt text-sis me-2" aria-hidden="true"></i>Salta, Argentina</li>
+              <li><i class="bi bi-telephone text-sis me-2" aria-hidden="true"></i><?= TELEFONO; ?></li>
+              <li><i class="bi bi-envelope text-sis me-2" aria-hidden="true"></i><?= EMAIL_SOPORTE; ?></li>
+              <li><i class="bi bi-geo-alt text-sis me-2" aria-hidden="true"></i><?= CIUDAD; ?></li>
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">© 2026 SIS Seguridad Electrónica. Todos los derechos reservados. Salta, Argentina.</div>
+        <div class="footer-bottom">© <?= ANIO_COPYRIGHT; ?> <?= NOMBRE_SITIO; ?>. Todos los derechos reservados. <?= CIUDAD; ?>.</div>
       </div>
     </footer>
 
-    <a class="whatsapp-fab" href="https://wa.me/543875334987" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/main.js"></script>
-  </body>
-</html>
+    <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<?php require_once 'includes/footer.php'; ?>

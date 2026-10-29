@@ -1,86 +1,8 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="SIS Seguridad Electrónica en Salta. Cámaras, alarmas, control de accesos y soluciones integrales."
-    />
-    <title>SIS Seguridad Electrónica | Inicio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="imagen/Logo-final.jpeg" type="image/jpeg" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-    <header>
-      <nav
-        class="navbar navbar-expand-lg sis-navbar sticky-top"
-        aria-label="Navegación principal"
-      >
-        <div class="container">
-          <a class="navbar-brand sis-brand" href="index.html">
-            <img
-              class="sis-logo-img"
-              src="imagen/Logo-final.jpeg"
-              alt="SIS Seguridad Electrónica"
-              width="280"
-              height="88"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNav"
-            aria-controls="mainNav"
-            aria-expanded="false"
-            aria-label="Abrir menú"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav mx-lg-auto sis-nav mb-3 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html" aria-current="page"
-                  >Inicio</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="nosotros.html">Nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="servicios.html">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="soluciones.html">Soluciones</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacto.html">Contacto</a>
-              </li>
-            </ul>
-            <a class="btn btn-sis" href="asesoramiento.html"
-              >Solicitar asesoramiento</a
-            >
-          </div>
-        </div>
-      </nav>
-    </header>
+<?php
+$titulo_pagina = "Inicio | SIS Seguridad Electrónica";
+$pagina_actual = "inicio";
+require_once 'includes/header.php';
+?>
 
     <main id="contenido">
       <section class="home-hero">
@@ -95,10 +17,10 @@
                 provincia de Salta.
               </p>
               <div class="d-flex flex-wrap gap-2">
-                <a class="btn btn-sis" href="servicios.html"
+                <a class="btn btn-sis" href="servicios.php"
                   >Conocé nuestros servicios</a
                 >
-                <a class="btn btn-sis-outline" href="asesoramiento.html"
+                <a class="btn btn-sis-outline" href="asesoramiento.php"
                   >Solicitar asesoramiento</a
                 >
               </div>
@@ -179,7 +101,7 @@
                   Videovigilancia HD/4K con visión nocturna y acceso desde el
                   celular.
                 </p>
-                <a href="camaras.html" class="text-sis fw-bold"
+                <a href="camaras.php" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -194,7 +116,7 @@
                   Sistemas inteligentes con sensores, sirenas y notificaciones
                   móviles.
                 </p>
-                <a href="alarmas.html" class="text-sis fw-bold"
+                <a href="alarmas.php" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -208,7 +130,7 @@
                 <p class="lead-muted">
                   Biometría, tarjetas RFID y software de gestión para empresas.
                 </p>
-                <a href="accesos.html" class="text-sis fw-bold"
+                <a href="accesos.php" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -223,7 +145,7 @@
                   Perímetros energizados con señalización y activación de
                   alarma.
                 </p>
-                <a href="servicios.html#cercos" class="text-sis fw-bold"
+                <a href="servicios.php#cercos" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -237,7 +159,7 @@
                 <p class="lead-muted">
                   GPS en tiempo real, geocercas e historial de recorridos.
                 </p>
-                <a href="servicios.html#gps" class="text-sis fw-bold"
+                <a href="servicios.php#gps" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -252,7 +174,7 @@
                   Detección temprana, alarmas visuales y mantenimiento
                   periódico.
                 </p>
-                <a href="servicios.html#incendios" class="text-sis fw-bold"
+                <a href="servicios.php#incendios" class="text-sis fw-bold"
                   >Ver más <i class="bi bi-arrow-right"></i
                 ></a>
               </article>
@@ -393,7 +315,7 @@
                   Protegé tu hogar, negocio o flota con un sistema pensado para
                   vos. Coordiná una visita técnica sin cargo.
                 </p>
-                <a class="btn btn-sis" href="asesoramiento.html"
+                <a class="btn btn-sis" href="asesoramiento.php"
                   >Quiero mi asesoramiento</a
                 >
               </div>
@@ -506,116 +428,12 @@
               </div>
             </div>
             <div class="col-lg-5 d-flex flex-wrap gap-2 justify-content-lg-end">
-              <a class="btn btn-sis" href="asesoramiento.html"
-                >Solicitar asesoramiento</a
-              >
-              <a
-                class="btn btn-sis-ghost"
-                href="https://wa.me/543875334987"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Escribinos por WhatsApp</a
-              >
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar asesoramiento</a>
+              <a class="btn btn-sis-ghost" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer">O escribinos por WhatsApp</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="sis-footer">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <a
-              class="sis-brand text-white mb-3 d-inline-flex"
-              href="index.html"
-            >
-              <img
-                class="sis-logo-img"
-                src="imagen/Logo-final.jpeg"
-                alt="SIS Seguridad Electrónica"
-                width="280"
-                height="88"
-              />
-            </a>
-            <p>
-              Soluciones de seguridad electrónica para hogares, comercios e
-              industrias en Salta.
-            </p>
-            <div class="social-links" aria-label="Redes sociales">
-              <a href="#" aria-label="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><i class="bi bi-linkedin"></i
-              ></a>
-              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">SERVICIOS</h2>
-            <ul>
-              <li><a href="camaras.html">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.html">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.html">Control de Accesos</a></li>
-              <li><a href="servicios.html#cercos">Cercos Eléctricos</a></li>
-              <li><a href="servicios.html#gps">Seguimiento Vehicular</a></li>
-              <li>
-                <a href="servicios.html#incendios">Sistemas contra Incendios</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">EMPRESA</h2>
-            <ul>
-              <li><a href="nosotros.html">Nosotros</a></li>
-              <li><a href="trabajos.html">Nuestros trabajos</a></li>
-              <li><a href="soluciones.html">Soluciones</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-title">CONTACTO</h2>
-            <ul>
-              <li>
-                <i class="bi bi-telephone text-sis me-2" aria-hidden="true"></i
-                >+54 387 533-4987
-              </li>
-              <li>
-                <i class="bi bi-envelope text-sis me-2" aria-hidden="true"></i
-                >info@sis-seguridad.com.ar
-              </li>
-              <li>
-                <i class="bi bi-geo-alt text-sis me-2" aria-hidden="true"></i
-                >Salta, Argentina
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom text-center text-md-start">
-          © 2026 SIS Seguridad Electrónica. Todos los derechos reservados.
-          Salta, Argentina.
-        </div>
-      </div>
-    </footer>
-
-    <a
-      class="whatsapp-fab"
-      href="https://wa.me/543875334987"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Escribir por WhatsApp"
-    >
-      <i class="bi bi-whatsapp" aria-hidden="true"></i>
-    </a>
-
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <script defer src="js/main.js"></script>
-  </body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

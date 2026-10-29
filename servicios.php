@@ -1,42 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Servicios de cámaras, alarmas, accesos, cercos eléctricos, GPS e incendios en Salta." />
-    <title>Servicios | SIS Seguridad Electrónica</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link rel="icon" href="imagen/Logo-final.jpeg" type="image/jpeg" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header>
-      <nav class="navbar navbar-expand-lg sis-navbar sticky-top" aria-label="Navegación principal">
-        <div class="container">
-          <a class="navbar-brand sis-brand" href="index.html">
-            <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav mx-lg-auto sis-nav mb-3 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-              <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-              <li class="nav-item"><a class="nav-link active" href="servicios.html" aria-current="page">Servicios</a></li>
-              <li class="nav-item"><a class="nav-link" href="soluciones.html">Soluciones</a></li>
-              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-            </ul>
-            <a class="btn btn-sis" href="asesoramiento.html">Solicitar asesoramiento</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+<?php
+$titulo_pagina = "Servicios | SIS Seguridad Electrónica";
+$pagina_actual = "servicios";
+require_once 'includes/header.php';
+?>
 
     <main id="contenido">
       <section class="page-hero text-center">
@@ -59,7 +25,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Detección de movimiento</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Almacenamiento local o en la nube</li>
               </ul>
-              <a class="btn btn-sis" href="camaras.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="camaras.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6">
               <div class="service-media" style="background-image:url('imagen/camara.webp')" role="img" aria-label="Cámara de seguridad tipo domo"></div>
@@ -81,7 +47,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Notificaciones móviles</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Sirenas de alta potencia</li>
               </ul>
-              <a class="btn btn-sis" href="alarmas.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="alarmas.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6 order-lg-1">
               <div class="service-media" style="background-image:url('imagen/alarma.webp')" role="img" aria-label="Panel de alarma en pared"></div>
@@ -103,7 +69,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Software de administración</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Reportes de asistencia</li>
               </ul>
-              <a class="btn btn-sis" href="accesos.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="accesos.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6">
               <div class="service-media" style="background-image:url('imagen/acceso.webp')" role="img" aria-label="Lector de acceso en puerta de oficina"></div>
@@ -125,7 +91,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Activación inmediata de alarma</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Señalización normativa</li>
               </ul>
-              <a class="btn btn-sis" href="asesoramiento.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6 order-lg-1">
               <div class="service-media" style="background-image:url('imagen/cerco.webp')" role="img" aria-label="Cerco perimetral en muro"></div>
@@ -147,7 +113,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Historial de recorridos</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Corte de motor remoto</li>
               </ul>
-              <a class="btn btn-sis" href="asesoramiento.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6">
               <div class="service-media" style="background-image:url('imagen/rastreo.webp')" role="img" aria-label="Seguimiento GPS en smartphone"></div>
@@ -169,7 +135,7 @@
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Sirenas con strobo</li>
                 <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i>Mantenimiento periódico</li>
               </ul>
-              <a class="btn btn-sis" href="asesoramiento.html">Solicitar presupuesto</a>
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar presupuesto</a>
             </div>
             <div class="col-lg-6 order-lg-1">
               <div class="service-media" style="background-image:url('imagen/fuego.webp')" role="img" aria-label="Estación de alarma contra incendios"></div>
@@ -186,8 +152,8 @@
               <p class="mb-0" style="color:#94a3b8">Estamos listos para asesorarte las 24 horas del día.</p>
             </div>
             <div class="col-lg-5 d-flex flex-wrap gap-2 justify-content-lg-end">
-              <a class="btn btn-sis" href="asesoramiento.html">Solicitar asesoramiento</a>
-              <a class="btn btn-sis-ghost" href="https://wa.me/543875334987" target="_blank" rel="noopener noreferrer">Consultanos por WhatsApp</a>
+              <a class="btn btn-sis" href="asesoramiento.php">Solicitar asesoramiento</a>
+              <a class="btn btn-sis-ghost" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer">Consultanos por WhatsApp</a>
             </div>
           </div>
         </div>
@@ -198,7 +164,7 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-md-6 col-lg-3">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.html">
+            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
               <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
             </a>
             <p>Soluciones de seguridad electrónica para hogares, comercios e industrias en Salta.</p>
@@ -206,36 +172,33 @@
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">SERVICIOS</h2>
             <ul>
-              <li><a href="camaras.html">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.html">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.html">Control de Accesos</a></li>
+              <li><a href="camaras.php">Cámaras de Seguridad</a></li>
+              <li><a href="alarmas.php">Alarmas Inteligentes</a></li>
+              <li><a href="accesos.php">Control de Accesos</a></li>
               <li><a href="#cercos">Cercos Eléctricos</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">EMPRESA</h2>
             <ul>
-              <li><a href="nosotros.html">Nosotros</a></li>
-              <li><a href="trabajos.html">Nuestros trabajos</a></li>
-              <li><a href="soluciones.html">Soluciones</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
+              <li><a href="nosotros.php">Nosotros</a></li>
+              <li><a href="trabajos.php">Nuestros trabajos</a></li>
+              <li><a href="soluciones.php">Soluciones</a></li>
+              <li><a href="contacto.php">Contacto</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
             <h2 class="footer-title">CONTACTO</h2>
             <ul>
-              <li>+54 387 533-4987</li>
-              <li>info@sis-seguridad.com.ar</li>
-              <li>Salta, Argentina</li>
+              <li><?= TELEFONO; ?></li>
+              <li><?= EMAIL_SOPORTE; ?></li>
+              <li><?= CIUDAD; ?></li>
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">© 2026 SIS Seguridad Electrónica. Todos los derechos reservados. Salta, Argentina.</div>
+        <div class="footer-bottom">© <?= ANIO_COPYRIGHT; ?> <?= NOMBRE_SITIO; ?>. Todos los derechos reservados. <?= CIUDAD; ?>.</div>
       </div>
     </footer>
 
-    <a class="whatsapp-fab" href="https://wa.me/543875334987" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/main.js"></script>
-  </body>
-</html>
+    <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<?php require_once 'includes/footer.php'; ?>
