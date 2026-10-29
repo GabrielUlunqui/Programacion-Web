@@ -1,0 +1,12 @@
+# Variables de entorno - No versionar
+.env
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
