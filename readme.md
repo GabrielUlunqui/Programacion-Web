@@ -191,14 +191,28 @@ Programacion-Web/
 ## Evidencia de Funcionamiento
 
 ### 1. Servidor Local Ejecutándose
-[Captura del sitio corriendo en el navegador bajo http://localhost/Programacion-Web/]
+<img src="img/inicio con php.png" width="800">
+
+Sitio corriendo en el navegador bajo http://localhost/Programacion-Web/
 
 ### 2. Estructura Modular (SSI)
-[Capturas del código fuente mostrando includes/header.php y includes/footer.php]
+
+**Header.php - Variables dinámicas y navegación:**
+<img src="img/header php.png" width="800">
+
+**Header.php - Lógica de navegación activa:**
+<img src="img/header 2.png" width="800">
+
+**Footer.php - Variables de entorno:**
+<img src="img/footer.png" width="800">
 
 ### 3. Navegación Dinámica
-[Captura que demuestre el cambio de título dinámico en la pestaña del navegador y la clase active en el menú]
+<img src="img/navegacion.png" width="800">
+
+Cambio de título dinámico en la pestaña del navegador y clase active en el menú según la sección navegada.
 
 ### 4. Configuración de Variables de Entorno
-[Captura del archivo .env.example presente en el repositorio]
+<img src="img/variables de entorno.png" width="800">
+
+Archivo config/env.php con constantes globales y plantilla .env.example presente en el repositorio.
 
