@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/../config/env.php';
+
+if (!isset($base_path)) {
+    $base_path = '';
+}
 ?>
 <!doctype html>
 <html lang="es">
@@ -25,8 +29,8 @@ require_once __DIR__ . '/../config/env.php';
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <link rel="icon" href="imagen/Logo-final.jpeg" type="image/jpeg" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="/Programacion-Web/imagen/Logo-final.jpeg" type="image/jpeg" />
+    <link rel="stylesheet" href="/Programacion-Web/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -37,10 +41,10 @@ require_once __DIR__ . '/../config/env.php';
         aria-label="Navegación principal"
       >
         <div class="container">
-          <a class="navbar-brand sis-brand" href="index.php">
+          <a class="navbar-brand sis-brand" href="<?= $base_path ?>index.php">
             <img
               class="sis-logo-img"
-              src="imagen/Logo-final.jpeg"
+              src="/Programacion-Web/imagen/Logo-final.jpeg"
               alt="SIS Seguridad Electrónica"
               width="280"
               height="88"
@@ -60,22 +64,22 @@ require_once __DIR__ . '/../config/env.php';
           <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-lg-auto sis-nav mb-3 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link <?= $pagina_actual === 'inicio' ? 'active' : ''; ?>" href="index.php" <?= $pagina_actual === 'inicio' ? 'aria-current="page"' : ''; ?>>Inicio</a>
+                <a class="nav-link <?= $pagina_actual === 'inicio' ? 'active' : ''; ?>" href="<?= $base_path ?>index.php" <?= $pagina_actual === 'inicio' ? 'aria-current="page"' : ''; ?>>Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?= $pagina_actual === 'nosotros' ? 'active' : ''; ?>" href="nosotros.php">Nosotros</a>
+                <a class="nav-link <?= $pagina_actual === 'nosotros' ? 'active' : ''; ?>" href="<?= $base_path ?>nosotros.php">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?= $pagina_actual === 'servicios' ? 'active' : ''; ?>" href="servicios.php">Servicios</a>
+                <a class="nav-link <?= $pagina_actual === 'servicios' ? 'active' : ''; ?>" href="<?= $base_path ?>servicios.php">Servicios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?= $pagina_actual === 'soluciones' ? 'active' : ''; ?>" href="soluciones.php">Soluciones</a>
+                <a class="nav-link <?= $pagina_actual === 'soluciones' ? 'active' : ''; ?>" href="<?= $base_path ?>soluciones.php">Soluciones</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?= $pagina_actual === 'contacto' ? 'active' : ''; ?>" href="contacto.php">Contacto</a>
+                <a class="nav-link <?= $pagina_actual === 'contacto' ? 'active' : ''; ?>" href="<?= $base_path ?>contacto.php">Contacto</a>
               </li>
             </ul>
-            <a class="btn btn-sis" href="asesoramiento.php">Solicitar asesoramiento</a>
+            <a class="btn btn-sis" href="<?= $base_path ?>asesoramiento.php">Solicitar asesoramiento</a>
           </div>
         </div>
       </nav>

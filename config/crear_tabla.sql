@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS sis_seguridad CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE sis_seguridad;
+
+CREATE TABLE IF NOT EXISTS contratos_monitoreo (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cliente VARCHAR(255) NOT NULL,
+    tipo_equipo VARCHAR(255) NOT NULL,
+    tarifa_mensual DECIMAL(10, 2) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

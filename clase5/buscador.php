@@ -1,6 +1,7 @@
 <?php
 $titulo_pagina = "Buscador de Servicios | SIS Seguridad Electrónica";
 $pagina_actual = "servicios";
+$base_path = "../";
 require_once '../includes/header.php';
 
 $mensaje = "";
@@ -23,32 +24,32 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['buscar'])) {
             "cámaras" => [
                 "titulo" => "Cámaras de Seguridad",
                 "descripcion" => "Videovigilancia HD/4K con visión nocturna",
-                "link" => "../camaras.php"
+                "link" => $base_path . "camaras.php"
             ],
             "alarmas" => [
                 "titulo" => "Alarmas Inteligentes",
                 "descripcion" => "Sistemas inteligentes con sensores y sirenas",
-                "link" => "../alarmas.php"
+                "link" => $base_path . "alarmas.php"
             ],
             "accesos" => [
                 "titulo" => "Control de Accesos",
                 "descripcion" => "Biometría, tarjetas RFID y software de gestión",
-                "link" => "../accesos.php"
+                "link" => $base_path . "accesos.php"
             ],
             "cercos" => [
                 "titulo" => "Cercos Eléctricos",
                 "descripcion" => "Perímetros energizados con activación de alarma",
-                "link" => "../servicios.php#cercos"
+                "link" => $base_path . "servicios.php#cercos"
             ],
             "gps" => [
                 "titulo" => "Seguimiento Vehicular",
                 "descripcion" => "GPS en tiempo real y geocercas",
-                "link" => "../servicios.php#gps"
+                "link" => $base_path . "servicios.php#gps"
             ],
             "incendios" => [
                 "titulo" => "Sistemas contra Incendios",
                 "descripcion" => "Detección temprana y alarmas visuales",
-                "link" => "../servicios.php#incendios"
+                "link" => $base_path . "servicios.php#incendios"
             ]
         ];
 

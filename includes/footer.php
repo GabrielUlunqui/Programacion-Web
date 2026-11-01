@@ -1,9 +1,14 @@
+<?php
+if (!isset($base_path)) {
+    $base_path = '';
+}
+?>
     <footer class="sis-footer">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-6 col-lg-3">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
-              <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
+            <a class="sis-brand text-white mb-3 d-inline-flex" href="<?= $base_path ?>index.php">
+              <img class="sis-logo-img" src="/Programacion-Web/imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
             </a>
             <p>Soluciones de seguridad electrónica para hogares, comercios e industrias en <?= CIUDAD; ?>.</p>
             <div class="social-links">
@@ -16,19 +21,19 @@
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">SERVICIOS</h2>
             <ul>
-              <li><a href="camaras.php">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.php">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.php">Control de Accesos</a></li>
-              <li><a href="servicios.php">Ver todos</a></li>
+              <li><a href="<?= $base_path ?>camaras.php">Cámaras de Seguridad</a></li>
+              <li><a href="<?= $base_path ?>alarmas.php">Alarmas Inteligentes</a></li>
+              <li><a href="<?= $base_path ?>accesos.php">Control de Accesos</a></li>
+              <li><a href="<?= $base_path ?>servicios.php">Ver todos</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-3">
             <h2 class="footer-title">EMPRESA</h2>
             <ul>
-              <li><a href="nosotros.php">Nosotros</a></li>
-              <li><a href="trabajos.php">Nuestros trabajos</a></li>
-              <li><a href="soluciones.php">Soluciones</a></li>
-              <li><a href="contacto.php">Contacto</a></li>
+              <li><a href="<?= $base_path ?>nosotros.php">Nosotros</a></li>
+              <li><a href="<?= $base_path ?>trabajos.php">Nuestros trabajos</a></li>
+              <li><a href="<?= $base_path ?>soluciones.php">Soluciones</a></li>
+              <li><a href="<?= $base_path ?>contacto.php">Contacto</a></li>
             </ul>
           </div>
           <div class="col-lg-3">
@@ -46,6 +51,6 @@
 
     <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/main.js"></script>
+    <script defer src="<?= $base_path ?>js/main.js"></script>
   </body>
 </html>
