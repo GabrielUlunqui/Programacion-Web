@@ -250,7 +250,7 @@ En esta unidad se implementó el procesamiento dinámico de formularios con PHP,
 - Mensaje: mínimo 10 caracteres
 
 ![Formulario POST - Contacto con errores](img/clase5/contacto.png)
-![Formulario POST - Contacto completado](img/clase5/contacto luego de rellenar bien.png)
+![Formulario POST - Contacto completado](img/clase5/contacto-completado.png)
 
 ### 2. Formulario POST - Asesoramiento (asesoramiento.php)
 
@@ -295,9 +295,9 @@ En esta unidad se implementó el procesamiento dinámico de formularios con PHP,
 - Manejo de casos: resultados encontrados, sin resultados, búsqueda inválida
 - Accesible desde la página principal mediante tarjeta de servicio
 
-![Formulario GET - Buscador con filtro](img/clase5/busqueda con filtro.png)
-![Validación GET - Error de búsqueda](img/clase5/error de busqueda.png)
-![Formulario GET - Buscador sin estilo](img/clase5/busqueda sin estilo aplicado.png)
+![Formulario GET - Buscador con filtro](img/clase5/buscador-resultados.png)
+![Validación GET - Error de búsqueda](img/clase5/buscador-sin-resultados.png)
+![Formulario GET - Buscador sin estilo](img/clase5/buscador-sin-estilo.png)
 
 ## Medidas de Seguridad Implementadas
 
