@@ -1,5 +1,9 @@
 <?php
+session_start();
 require_once '../config/conexion.php';
+require_once '../auth/auth_guard.php';
+
+verificar_rol_admin();
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 

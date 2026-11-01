@@ -1,9 +1,13 @@
 <?php
+session_start();
 $titulo_pagina = "Crear Contrato | SIS Seguridad Electrónica";
 $pagina_actual = "admin";
 $base_path = "../";
 require_once '../includes/header.php';
 require_once '../config/conexion.php';
+require_once '../auth/auth_guard.php';
+
+verificar_rol_admin();
 
 $mensaje = "";
 $tipo_mensaje = "";

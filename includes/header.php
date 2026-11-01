@@ -78,6 +78,9 @@ if (!isset($base_path)) {
               <li class="nav-item">
                 <a class="nav-link <?= $pagina_actual === 'contacto' ? 'active' : ''; ?>" href="<?= $base_path ?>contacto.php">Contacto</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link <?= $pagina_actual === 'login' ? 'active' : ''; ?>" href="<?= $base_path ?>auth/login.php">Iniciar Sesión</a>
+              </li>
             </ul>
             <a class="btn btn-sis" href="<?= $base_path ?>asesoramiento.php">Solicitar asesoramiento</a>
           </div>
