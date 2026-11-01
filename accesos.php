@@ -42,33 +42,4 @@ require_once 'includes/header.php';
       </section>
     </main>
 
-    <footer class="sis-footer">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
-              <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
-            </a>
-            <p>Soluciones de seguridad electrónica en Salta.</p>
-          </div>
-          <div class="col-6 col-lg-4">
-            <h2 class="footer-title">EMPRESA</h2>
-            <ul>
-              <li><a href="nosotros.php">Nosotros</a></li>
-              <li><a href="trabajos.php">Nuestros trabajos</a></li>
-              <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-4">
-            <h2 class="footer-title">CONTACTO</h2>
-            <ul>
-              <li><?= TELEFONO; ?></li>
-              <li><?= EMAIL_SOPORTE; ?></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">© <?= ANIO_COPYRIGHT; ?> <?= NOMBRE_SITIO; ?>. Todos los derechos reservados.</div>
-      </div>
-    </footer>
-    <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
 <?php require_once 'includes/footer.php'; ?>

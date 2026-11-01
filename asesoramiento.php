@@ -2,6 +2,82 @@
 $titulo_pagina = "Solicitar Asesoramiento | SIS Seguridad Electrónica";
 $pagina_actual = "asesoramiento";
 require_once 'includes/header.php';
+
+$mensaje = "";
+$tipo_mensaje = "";
+$nombre = "";
+$telefono = "";
+$email = "";
+$tipo_propiedad = "";
+$servicio = "";
+$mensaje_texto = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['enviar_solicitud'])) {
+    $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_SPECIAL_CHARS);
+    $nombre = trim($nombre);
+
+    $telefono = filter_input(INPUT_POST, 'telefono', FILTER_SANITIZE_SPECIAL_CHARS);
+    $telefono = trim($telefono);
+
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = trim($email);
+
+    $tipo_propiedad = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_SPECIAL_CHARS);
+    $tipo_propiedad = trim($tipo_propiedad);
+
+    $servicio = filter_input(INPUT_POST, 'servicio', FILTER_SANITIZE_SPECIAL_CHARS);
+    $servicio = trim($servicio);
+
+    $mensaje_texto = filter_input(INPUT_POST, 'mensaje', FILTER_SANITIZE_SPECIAL_CHARS);
+    $mensaje_texto = trim($mensaje_texto);
+
+    $errores = [];
+
+    if (empty($nombre)) {
+        $errores[] = "El nombre es obligatorio.";
+    } elseif (strlen($nombre) < 3) {
+        $errores[] = "El nombre debe tener al menos 3 caracteres.";
+    }
+
+    if (empty($telefono)) {
+        $errores[] = "El teléfono es obligatorio.";
+    }
+
+    if (empty($email)) {
+        $errores[] = "El email es obligatorio.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errores[] = "El formato del email no es válido.";
+    }
+
+    if (empty($tipo_propiedad)) {
+        $errores[] = "Debes seleccionar el tipo de propiedad.";
+    }
+
+    if (empty($servicio)) {
+        $errores[] = "Debes seleccionar un servicio de interés.";
+    }
+
+    if (empty($mensaje_texto)) {
+        $errores[] = "El mensaje es obligatorio.";
+    } elseif (strlen($mensaje_texto) < 10) {
+        $errores[] = "El mensaje debe tener al menos 10 caracteres.";
+    }
+
+    if (empty($errores)) {
+        $mensaje = "¡Solicitud de asesoramiento registrada! Te contactaremos dentro de las 24hs para coordinar la visita técnica.";
+        $tipo_mensaje = "success";
+
+        $nombre = "";
+        $telefono = "";
+        $email = "";
+        $tipo_propiedad = "";
+        $servicio = "";
+        $mensaje_texto = "";
+    } else {
+        $mensaje = "Por favor, corrige los siguientes errores:";
+        $tipo_mensaje = "danger";
+    }
+}
 ?>
 
     <main id="contenido">
@@ -25,51 +101,93 @@ require_once 'includes/header.php';
               <div class="advise-form-card">
                 <h2 class="h3 fw-bold mb-1">Completá tus datos</h2>
                 <p class="lead-muted mb-4">Con esta información preparamos el relevamiento y te contactamos para coordinar día y horario.</p>
-                <div id="form-success" class="alert alert-success d-none" role="status">
-                  ¡Listo! Registramos tu solicitud de asesoramiento.
-                </div>
-                <form id="contact-form" novalidate>
+
+                <?php if (!empty($mensaje)): ?>
+                  <div class="alert alert-<?= $tipo_mensaje; ?> mb-4" role="alert">
+                    <?= $mensaje; ?>
+                    <?php if (!empty($errores)): ?>
+                      <ul class="mb-0 mt-2">
+                        <?php foreach ($errores as $error): ?>
+                          <li><?= htmlspecialchars($error); ?></li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
+
+                <form method="POST" action="asesoramiento.php">
                   <div class="row g-3">
                     <div class="col-md-6">
                       <label class="form-label" for="nombre">Nombre completo</label>
-                      <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Ej. Ana Pérez" required />
+                      <input
+                        class="form-control"
+                        id="nombre"
+                        name="nombre"
+                        type="text"
+                        placeholder="Ej. Ana Pérez"
+                        value="<?= htmlspecialchars($nombre); ?>"
+                        required
+                      />
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="telefono">Teléfono</label>
-                      <input class="form-control" id="telefono" name="telefono" type="tel" placeholder="+54 387 1234567" required />
+                      <input
+                        class="form-control"
+                        id="telefono"
+                        name="telefono"
+                        type="tel"
+                        placeholder="+54 387 1234567"
+                        value="<?= htmlspecialchars($telefono); ?>"
+                        required
+                      />
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="email">Email</label>
-                      <input class="form-control" id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
+                      <input
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="correo@ejemplo.com"
+                        value="<?= htmlspecialchars($email); ?>"
+                        required
+                      />
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="tipo">Tipo de propiedad</label>
                       <select class="form-select" id="tipo" name="tipo" required>
                         <option value="">Seleccioná</option>
-                        <option>Residencial</option>
-                        <option>Comercial</option>
-                        <option>Industrial</option>
+                        <option value="Residencial" <?= $tipo_propiedad === 'Residencial' ? 'selected' : ''; ?>>Residencial</option>
+                        <option value="Comercial" <?= $tipo_propiedad === 'Comercial' ? 'selected' : ''; ?>>Comercial</option>
+                        <option value="Industrial" <?= $tipo_propiedad === 'Industrial' ? 'selected' : ''; ?>>Industrial</option>
                       </select>
                     </div>
                     <div class="col-12">
                       <label class="form-label" for="servicio">Servicio de interés</label>
                       <select class="form-select" id="servicio" name="servicio" required>
                         <option value="">Seleccioná un servicio</option>
-                        <option>Cámaras de Seguridad</option>
-                        <option>Alarmas Inteligentes</option>
-                        <option>Control de Accesos</option>
-                        <option>Cercos Eléctricos</option>
-                        <option>Seguimiento Vehicular</option>
-                        <option>Sistemas contra Incendios</option>
-                        <option>Pack integral</option>
+                        <option value="Cámaras de Seguridad" <?= $servicio === 'Cámaras de Seguridad' ? 'selected' : ''; ?>>Cámaras de Seguridad</option>
+                        <option value="Alarmas Inteligentes" <?= $servicio === 'Alarmas Inteligentes' ? 'selected' : ''; ?>>Alarmas Inteligentes</option>
+                        <option value="Control de Accesos" <?= $servicio === 'Control de Accesos' ? 'selected' : ''; ?>>Control de Accesos</option>
+                        <option value="Cercos Eléctricos" <?= $servicio === 'Cercos Eléctricos' ? 'selected' : ''; ?>>Cercos Eléctricos</option>
+                        <option value="Seguimiento Vehicular" <?= $servicio === 'Seguimiento Vehicular' ? 'selected' : ''; ?>>Seguimiento Vehicular</option>
+                        <option value="Sistemas contra Incendios" <?= $servicio === 'Sistemas contra Incendios' ? 'selected' : ''; ?>>Sistemas contra Incendios</option>
+                        <option value="Pack integral" <?= $servicio === 'Pack integral' ? 'selected' : ''; ?>>Pack integral</option>
                       </select>
                     </div>
                     <div class="col-12">
                       <label class="form-label" for="mensaje">Contanos tu necesidad</label>
-                      <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Qué querés proteger, tamaño del lugar o cualquier detalle útil..." required></textarea>
+                      <textarea
+                        class="form-control"
+                        id="mensaje"
+                        name="mensaje"
+                        rows="4"
+                        placeholder="Qué querés proteger, tamaño del lugar o cualquier detalle útil..."
+                        required
+                      ><?= htmlspecialchars($mensaje_texto); ?></textarea>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-sis w-100" type="submit">Enviar solicitud</button>
+                      <button class="btn btn-sis w-100" type="submit" name="enviar_solicitud">Enviar solicitud</button>
                     </div>
                   </div>
                 </form>
@@ -130,44 +248,4 @@ require_once 'includes/header.php';
       </section>
     </main>
 
-    <footer class="sis-footer">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
-              <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
-            </a>
-            <p>Soluciones de seguridad electrónica para hogares, comercios e industrias en Salta.</p>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">SERVICIOS</h2>
-            <ul>
-              <li><a href="camaras.php">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.php">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.php">Control de Accesos</a></li>
-              <li><a href="servicios.php">Ver todos</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">EMPRESA</h2>
-            <ul>
-              <li><a href="nosotros.php">Nosotros</a></li>
-              <li><a href="trabajos.php">Nuestros trabajos</a></li>
-              <li><a href="soluciones.php">Soluciones</a></li>
-              <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-title">CONTACTO</h2>
-            <ul>
-              <li><?= TELEFONO; ?></li>
-              <li><?= EMAIL_SOPORTE; ?></li>
-              <li><?= CIUDAD; ?></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">© <?= ANIO_COPYRIGHT; ?> <?= NOMBRE_SITIO; ?>. Todos los derechos reservados. <?= CIUDAD; ?>.</div>
-      </div>
-    </footer>
-    <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
 <?php require_once 'includes/footer.php'; ?>

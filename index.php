@@ -179,6 +179,20 @@ require_once 'includes/header.php';
                 ></a>
               </article>
             </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="service-card">
+                <div class="icon-box" aria-hidden="true">
+                  <i class="bi bi-search"></i>
+                </div>
+                <h3 class="h5 fw-bold">Buscador de Servicios</h3>
+                <p class="lead-muted">
+                  Encontrá rápidamente el servicio que necesitás con nuestro buscador inteligente.
+                </p>
+                <a href="clase5/buscador.php" class="text-sis fw-bold"
+                  >Buscar <i class="bi bi-arrow-right"></i
+                ></a>
+              </article>
+            </div>
           </div>
         </div>
       </section>

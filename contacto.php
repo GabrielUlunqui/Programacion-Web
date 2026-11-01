@@ -2,6 +2,73 @@
 $titulo_pagina = "Contacto | SIS Seguridad Electrónica";
 $pagina_actual = "contacto";
 require_once 'includes/header.php';
+
+$mensaje = "";
+$tipo_mensaje = "";
+$nombre = "";
+$email = "";
+$telefono = "";
+$servicio = "";
+$mensaje_texto = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['enviar'])) {
+    $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_SPECIAL_CHARS);
+    $nombre = trim($nombre);
+
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $email = trim($email);
+
+    $telefono = filter_input(INPUT_POST, 'telefono', FILTER_SANITIZE_SPECIAL_CHARS);
+    $telefono = trim($telefono);
+
+    $servicio = filter_input(INPUT_POST, 'servicio', FILTER_SANITIZE_SPECIAL_CHARS);
+    $servicio = trim($servicio);
+
+    $mensaje_texto = filter_input(INPUT_POST, 'mensaje', FILTER_SANITIZE_SPECIAL_CHARS);
+    $mensaje_texto = trim($mensaje_texto);
+
+    $errores = [];
+
+    if (empty($nombre)) {
+        $errores[] = "El nombre es obligatorio.";
+    } elseif (strlen($nombre) < 3) {
+        $errores[] = "El nombre debe tener al menos 3 caracteres.";
+    }
+
+    if (empty($email)) {
+        $errores[] = "El email es obligatorio.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errores[] = "El formato del email no es válido.";
+    }
+
+    if (empty($telefono)) {
+        $errores[] = "El teléfono es obligatorio.";
+    }
+
+    if (empty($servicio)) {
+        $errores[] = "Debes seleccionar un servicio de interés.";
+    }
+
+    if (empty($mensaje_texto)) {
+        $errores[] = "El mensaje es obligatorio.";
+    } elseif (strlen($mensaje_texto) < 10) {
+        $errores[] = "El mensaje debe tener al menos 10 caracteres.";
+    }
+
+    if (empty($errores)) {
+        $mensaje = "¡Mensaje enviado exitosamente! Gracias por contactarnos. Te responderemos a la brevedad.";
+        $tipo_mensaje = "success";
+
+        $nombre = "";
+        $email = "";
+        $telefono = "";
+        $servicio = "";
+        $mensaje_texto = "";
+    } else {
+        $mensaje = "Por favor, corrige los siguientes errores:";
+        $tipo_mensaje = "danger";
+    }
+}
 ?>
 
     <main id="contenido">
@@ -18,39 +85,81 @@ require_once 'includes/header.php';
             <div class="col-lg-7">
               <div class="contact-form">
                 <h2 class="h3 fw-bold mb-4">Enviar un mensaje</h2>
-                <div id="form-success" class="alert alert-success d-none" role="status">
-                  ¡Gracias! Recibimos tu mensaje. Te contactaremos a la brevedad.
-                </div>
-                <form id="contact-form" novalidate>
+
+                <?php if (!empty($mensaje)): ?>
+                  <div class="alert alert-<?= $tipo_mensaje; ?> mb-4" role="alert">
+                    <?= $mensaje; ?>
+                    <?php if (!empty($errores)): ?>
+                      <ul class="mb-0 mt-2">
+                        <?php foreach ($errores as $error): ?>
+                          <li><?= htmlspecialchars($error); ?></li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
+
+                <form method="POST" action="contacto.php">
                   <div class="mb-3">
                     <label class="form-label" for="nombre">Nombre completo</label>
-                    <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Ingresá tu nombre" required />
+                    <input
+                      class="form-control"
+                      id="nombre"
+                      name="nombre"
+                      type="text"
+                      placeholder="Ingresá tu nombre"
+                      value="<?= htmlspecialchars($nombre); ?>"
+                      required
+                    />
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="email">Email de contacto</label>
-                    <input class="form-control" id="email" name="email" type="email" placeholder="correo@ejemplo.com" required />
+                    <input
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="correo@ejemplo.com"
+                      value="<?= htmlspecialchars($email); ?>"
+                      required
+                    />
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="telefono">Teléfono / Celular</label>
-                    <input class="form-control" id="telefono" name="telefono" type="tel" placeholder="+54 387 1234567" required />
+                    <input
+                      class="form-control"
+                      id="telefono"
+                      name="telefono"
+                      type="tel"
+                      placeholder="+54 387 1234567"
+                      value="<?= htmlspecialchars($telefono); ?>"
+                      required
+                    />
                   </div>
                   <div class="mb-3">
                     <label class="form-label" for="servicio">Servicio de interés</label>
                     <select class="form-select" id="servicio" name="servicio" required>
                       <option value="">Seleccioná un servicio</option>
-                      <option>Cámaras de Seguridad</option>
-                      <option>Alarmas Inteligentes</option>
-                      <option>Control de Accesos</option>
-                      <option>Cercos Eléctricos</option>
-                      <option>Seguimiento Vehicular</option>
-                      <option>Sistemas contra Incendios</option>
+                      <option value="Cámaras de Seguridad" <?= $servicio === 'Cámaras de Seguridad' ? 'selected' : ''; ?>>Cámaras de Seguridad</option>
+                      <option value="Alarmas Inteligentes" <?= $servicio === 'Alarmas Inteligentes' ? 'selected' : ''; ?>>Alarmas Inteligentes</option>
+                      <option value="Control de Accesos" <?= $servicio === 'Control de Accesos' ? 'selected' : ''; ?>>Control de Accesos</option>
+                      <option value="Cercos Eléctricos" <?= $servicio === 'Cercos Eléctricos' ? 'selected' : ''; ?>>Cercos Eléctricos</option>
+                      <option value="Seguimiento Vehicular" <?= $servicio === 'Seguimiento Vehicular' ? 'selected' : ''; ?>>Seguimiento Vehicular</option>
+                      <option value="Sistemas contra Incendios" <?= $servicio === 'Sistemas contra Incendios' ? 'selected' : ''; ?>>Sistemas contra Incendios</option>
                     </select>
                   </div>
                   <div class="mb-4">
                     <label class="form-label" for="mensaje">Mensaje o consulta</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Contanos brevemente qué necesitás proteger..." required></textarea>
+                    <textarea
+                      class="form-control"
+                      id="mensaje"
+                      name="mensaje"
+                      rows="5"
+                      placeholder="Contanos brevemente qué necesitás proteger..."
+                      required
+                    ><?= htmlspecialchars($mensaje_texto); ?></textarea>
                   </div>
-                  <button class="btn btn-sis w-100" type="submit">Enviar mensaje</button>
+                  <button class="btn btn-sis w-100" type="submit" name="enviar">Enviar mensaje</button>
                 </form>
               </div>
             </div>
@@ -98,51 +207,7 @@ require_once 'includes/header.php';
       </section>
     </main>
 
-    <footer class="sis-footer">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <a class="sis-brand text-white mb-3 d-inline-flex" href="index.php">
-              <img class="sis-logo-img" src="imagen/Logo-final.jpeg" alt="SIS Seguridad Electrónica" width="280" height="88" />
-            </a>
-            <p>Soluciones de seguridad electrónica para hogares, comercios e industrias en Salta.</p>
-            <div class="social-links">
-              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">SERVICIOS</h2>
-            <ul>
-              <li><a href="camaras.php">Cámaras de Seguridad</a></li>
-              <li><a href="alarmas.php">Alarmas Inteligentes</a></li>
-              <li><a href="accesos.php">Control de Accesos</a></li>
-              <li><a href="servicios.php">Ver todos</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-3">
-            <h2 class="footer-title">EMPRESA</h2>
-            <ul>
-              <li><a href="nosotros.php">Nosotros</a></li>
-              <li><a href="trabajos.php">Nuestros trabajos</a></li>
-              <li><a href="soluciones.php">Soluciones</a></li>
-              <li><a href="contacto.php">Contacto</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-title">CONTACTO</h2>
-            <ul>
-              <li><?= TELEFONO; ?></li>
-              <li><?= EMAIL_SOPORTE; ?></li>
-              <li><?= CIUDAD; ?></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">© <?= ANIO_COPYRIGHT; ?> <?= NOMBRE_SITIO; ?>. Todos los derechos reservados. <?= CIUDAD; ?>.</div>
-      </div>
-    </footer>
+<?php require_once 'includes/footer.php'; ?>
 
     <a class="whatsapp-fab" href="https://wa.me/<?= WHATSAPP; ?>" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
 <?php require_once 'includes/footer.php'; ?>
