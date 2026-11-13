@@ -32,6 +32,22 @@ $contratos = $stmt->fetchAll();
             </a>
           </div>
 
+          <div class="mb-4" style="max-width: 480px;">
+            <label class="form-label visually-hidden" for="buscar-contrato">Buscar contratos</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-search"></i></span>
+              <input
+                class="form-control"
+                id="buscar-contrato"
+                name="buscar-contrato"
+                type="search"
+                placeholder="Buscar por cliente o tipo de equipo..."
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-text" id="buscar-estado" aria-live="polite"></div>
+          </div>
+
           <div class="table-responsive">
             <table class="table table-hover align-middle">
               <thead class="table-light">
@@ -43,7 +59,7 @@ $contratos = $stmt->fetchAll();
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tabla-contratos-body">
                 <?php if (count($contratos) > 0): ?>
                   <?php foreach ($contratos as $contrato): ?>
                     <tr>
@@ -83,4 +99,5 @@ $contratos = $stmt->fetchAll();
       </section>
     </main>
 
+<script src="<?= $base_path ?>js/admin-contratos.js" defer></script>
 <?php require_once '../includes/footer.php'; ?>
