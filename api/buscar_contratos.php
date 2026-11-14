@@ -12,6 +12,7 @@ if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] ?? '') !== 'adm
 }
 
 require_once '../config/conexion.php';
+require_once '../app/Models/Contrato.php';
 
 $termino = $_GET['q'] ?? '';
 
@@ -28,20 +29,8 @@ $termino = trim($termino);
 $termino = mb_substr($termino, 0, 100);
 
 try {
-    if ($termino !== '') {
-        $like = "%{$termino}%";
-        $sql = "SELECT id, nombre_cliente, tipo_equipo, tarifa_mensual FROM contratos_monitoreo
-                WHERE nombre_cliente LIKE :q OR tipo_equipo LIKE :q
-                ORDER BY id DESC";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':q', $like);
-        $stmt->execute();
-    } else {
-        $sql = "SELECT id, nombre_cliente, tipo_equipo, tarifa_mensual FROM contratos_monitoreo ORDER BY id DESC";
-        $stmt = $pdo->query($sql);
-    }
-
-    $contratos = $stmt->fetchAll();
+    $contratosModel = new Contrato($pdo);
+    $contratos = $termino !== '' ? $contratosModel->buscar($termino) : $contratosModel->todos();
 
     http_response_code(200);
     echo json_encode([
