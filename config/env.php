@@ -7,3 +7,4 @@ define('TELEFONO', '+54 387 533-4987');
 define('WHATSAPP', '543875334987');
 define('CIUDAD', 'Salta, Argentina');
 define('ANIO_COPYRIGHT', '2026');
+define('URL_LARAVEL', 'http://localhost:8001');

@@ -17,9 +17,15 @@ try {
     $stmt_contratos = $pdo->prepare($sql_contratos);
     $stmt_contratos->execute();
     $total_contratos = $stmt_contratos->fetch()['total'];
+
+    $sql_servicios = "SELECT COUNT(*) as total FROM servicios";
+    $stmt_servicios = $pdo->prepare($sql_servicios);
+    $stmt_servicios->execute();
+    $total_servicios = $stmt_servicios->fetch()['total'];
 } catch (PDOException $e) {
     $total_usuarios = 0;
     $total_contratos = 0;
+    $total_servicios = 0;
 }
 
 verificar_rol_admin();
@@ -36,7 +42,7 @@ verificar_rol_admin();
       <section class="section-pad">
         <div class="container">
           <div class="row g-4 mb-5">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-body">
                   <h5 class="card-title">Usuarios</h5>
@@ -44,11 +50,19 @@ verificar_rol_admin();
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="card text-center">
                 <div class="card-body">
                   <h5 class="card-title">Contratos</h5>
                   <p class="card-text display-4 fw-bold text-sis"><?= htmlspecialchars($total_contratos); ?></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">Servicios</h5>
+                  <p class="card-text display-4 fw-bold text-sis"><?= htmlspecialchars($total_servicios); ?></p>
                 </div>
               </div>
             </div>
@@ -67,6 +81,9 @@ verificar_rol_admin();
                     </a>
                     <a class="btn btn-sis text-start" href="<?= $base_path ?>admin/index.php">
                       <i class="bi bi-list-check me-2"></i>Gestionar Contratos
+                    </a>
+                    <a class="btn btn-sis text-start" href="<?= URL_LARAVEL; ?>/servicios">
+                      <i class="bi bi-grid me-2"></i>Gestionar Servicios (Laravel)
                     </a>
                     <a class="btn btn-outline-primary text-start" href="#">
                       <i class="bi bi-graph-up me-2"></i>Ver Reportes
