@@ -107,4 +107,5 @@ SITIO WEB
 - [Clase 7 - Persistencia y Conexión PHP-MySQL Segura](readme-clase7.md)
 - [Clase 8 - Manejo de Estado, Sesiones y Autenticación](readme-clase8.md)
 - [TP 9 - Comunicación Asincrónica y APIs (AJAX & JSON)](readme-tp9.md)
+- [TP 10 - Refactorización a MVC e Implementación con Framework](readme-tp10.md)
 
