@@ -6,6 +6,11 @@ $base_path = "../";
 require_once '../includes/header.php';
 require_once '../config/conexion.php';
 
+if (isset($_SESSION['usuario_id'])) {
+    header("Location: " . ($_SESSION['usuario_rol'] === 'admin' ? 'admin_panel.php' : 'mi_cuenta.php'));
+    exit;
+}
+
 $mensaje = "";
 $tipo_mensaje = "";
 $email = "";
@@ -46,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login'])) {
                 $_SESSION['usuario_rol'] = $usuario['rol'];
                 $_SESSION['login_time'] = time();
 
-                header("Location: admin_panel.php");
+                header("Location: " . ($usuario['rol'] === 'admin' ? 'admin_panel.php' : 'mi_cuenta.php'));
                 exit;
             } else {
                 $mensaje = "Email o contraseña incorrectos.";
