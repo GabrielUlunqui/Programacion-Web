@@ -8,9 +8,22 @@
 
       <section class="section-pad">
         <div class="container">
+          <?php if (isset($_GET['eliminado'])): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              Contrato eliminado exitosamente.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+          <?php endif; ?>
+          <?php if (isset($_GET['error'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <?= htmlspecialchars($_GET['error']); ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+          <?php endif; ?>
+
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 fw-bold">Listado de Contratos</h2>
-            <a class="btn btn-sis" href="<?= $base_path ?>crear.php">
+            <a class="btn btn-sis" href="crear.php">
               <i class="bi bi-plus-lg me-2"></i>Nuevo Contrato
             </a>
           </div>
@@ -64,7 +77,7 @@
                   <tr>
                     <td colspan="5" class="text-center py-4">
                       <p class="lead-muted mb-0">No hay contratos registrados.</p>
-                      <a href="<?= $base_path ?>crear.php" class="btn btn-sis">Crear primer contrato</a>
+                      <a href="crear.php" class="btn btn-sis">Crear primer contrato</a>
                     </td>
                   </tr>
                 <?php endif; ?>

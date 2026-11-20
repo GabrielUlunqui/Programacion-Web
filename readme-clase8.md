@@ -99,8 +99,12 @@ En esta unidad se implementó el sistema completo de autenticación y gestión d
 ### 7. Gestión de Usuarios (auth/gestion_usuarios.php)
 - Listado de todos los usuarios del sistema
 - Visualización de rol de cada usuario (badge)
-- Botones para editar y eliminar usuarios
-- Protección para evitar que admin se elimine a sí mismo
+- CRUD completo de usuarios protegido con rol admin:
+  - `crear_usuario.php` - Alta de usuarios con validación y hashing BCRYPT
+  - `editar_usuario.php` - Edición de datos y cambio opcional de contraseña
+  - `eliminar_usuario.php` - Eliminación con confirmación
+- Protección para evitar que admin se elimine a sí mismo (validado en servidor)
+- Mensajes de retroalimentación mediante sesión flash
 - Integración con diseño del sitio
 
 ## Integración con el Sitio Principal
@@ -154,7 +158,10 @@ auth/
 ├── logout.php                  # Cierre de sesión
 ├── auth_guard.php              # Guardián de rutas
 ├── admin_panel.php             # Panel de administración
-└── gestion_usuarios.php        # Gestión de usuarios
+├── gestion_usuarios.php        # Gestión de usuarios (listado)
+├── crear_usuario.php           # Alta de usuarios (admin)
+├── editar_usuario.php          # Edición de usuarios (admin)
+└── eliminar_usuario.php        # Eliminación de usuarios (admin)
 
 admin/
 ├── index.php                    # Listado contratos (protegido)

@@ -72,7 +72,7 @@
                     <button class="btn btn-sis flex-grow-1" type="submit" name="actualizar">
                       <i class="bi bi-check-lg me-2"></i>Actualizar Contrato
                     </button>
-                    <a class="btn btn-sis-outline flex-grow-1" href="<?= $base_path ?>index.php">Cancelar</a>
+                    <a class="btn btn-sis-outline flex-grow-1" href="index.php">Cancelar</a>
                   </div>
                 </form>
               </div>

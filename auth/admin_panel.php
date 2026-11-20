@@ -85,9 +85,6 @@ verificar_rol_admin();
                     <a class="btn btn-sis text-start" href="<?= URL_LARAVEL; ?>/servicios">
                       <i class="bi bi-grid me-2"></i>Gestionar Servicios (Laravel)
                     </a>
-                    <a class="btn btn-outline-primary text-start" href="#">
-                      <i class="bi bi-graph-up me-2"></i>Ver Reportes
-                    </a>
                   </div>
                 </div>
               </div>

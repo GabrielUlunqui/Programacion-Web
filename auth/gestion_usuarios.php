@@ -28,6 +28,14 @@ $usuarios = $stmt->fetchAll();
 
       <section class="section-pad">
         <div class="container">
+          <?php if (isset($_SESSION['mensaje'])): ?>
+            <div class="alert alert-<?= htmlspecialchars($_SESSION['tipo_mensaje'] ?? 'success'); ?> alert-dismissible fade show" role="alert">
+              <?= htmlspecialchars($_SESSION['mensaje']); ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+            <?php unset($_SESSION['mensaje'], $_SESSION['tipo_mensaje']); ?>
+          <?php endif; ?>
+
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h3 fw-bold">Listado de Usuarios</h2>
             <a class="btn btn-sis" href="crear_usuario.php">

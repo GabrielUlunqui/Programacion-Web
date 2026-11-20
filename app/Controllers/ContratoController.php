@@ -133,6 +133,13 @@ class ContratoController
         }
 
         try {
+            $contrato = $this->contratos->buscarPorId((int) $id);
+
+            if (!$contrato) {
+                header("Location: index.php?error=" . urlencode("El contrato no existe."));
+                exit;
+            }
+
             $this->contratos->eliminar((int) $id);
             header("Location: index.php?eliminado=1");
             exit;
